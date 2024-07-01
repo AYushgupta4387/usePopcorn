@@ -13,10 +13,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
-  // const [watched, setWatched] = useState([]);
-  // const [watched, setWatched] = useState(() => {
-  //   return JSON.parse(localStorage.getItem("watched"));
-  // });
+  // custom hook to get something from local storage
   const [watched, setWatched] = useLocalStorageState([], "watched"); // using a custom hook
 
   // BAD PRACTICE - Creates an infinite loop
@@ -24,7 +21,6 @@ export default function App() {
   //   .then((res) => res.json())
   //   .then((data) => setMovies(data.Search))
 
-  /* Practice examples */
   /* useEffect(function () {
     console.log("After initial render");
   }, []);
@@ -45,9 +41,6 @@ export default function App() {
 
   const handleAddWatched = function (movie) {
     setWatched((watched) => [...watched, movie]);
-
-    // We will do this using an effect
-    // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   };
 
   const handleDeleteWatched = function (id) {
@@ -411,7 +404,9 @@ const WatchedMovie = function ({ movie, onDeleteWatched }) {
         <button
           className="btn-delete"
           onClick={() => onDeleteWatched(movie.imdbID)}
-        ></button>
+        >
+          &times;
+        </button>
       </div>
     </li>
   );
