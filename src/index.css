@@ -371,6 +371,20 @@ body {
     padding: 2rem;
   }
 
+  .summary div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .list div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .btn-delete {
     right: 1.5rem;
   }
